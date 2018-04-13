@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,7 +36,25 @@ class Produit
      */
     private $quantite;
 
+	/**
+	 * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Etalage", inversedBy="produits")
+	 */
+	private $etalages;
 
+	public function __construct(){
+		$this->etalages = new ArrayCollection();
+	}
+
+	/**
+	 * @param Etalage $etalage
+	 */
+	public function addEtalages( $etalage ) {
+		if(!$this->etalages->contains($etalage)){
+			$this->etalages->add($etalage);
+		}else{
+//			$this->etalages->removeElement($etalage);
+		}
+	}
 
     /**
      * Get id

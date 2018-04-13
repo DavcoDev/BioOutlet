@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,8 +43,28 @@ class Producteur
      */
     private $ville;
 
+	/**
+	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Etalage", mappedBy="producteur")
+	 */
+	private $etalages;
 
-    /**
+	/**
+	 * @return ArrayCollection | Etalage
+	 */
+	public function getEtalages() {
+		return $this->etalages;
+	}
+
+	public function __construct()
+	{
+		$this->etalages = new ArrayCollection();
+	}
+
+	public function __toString() {
+		return $this->getNomProducteur();
+	}
+
+	/**
      * Get id
      *
      * @return int

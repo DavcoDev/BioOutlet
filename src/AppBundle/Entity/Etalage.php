@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,6 +29,44 @@ class Etalage
      */
     private $name;
 
+	/**
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Producteur", inversedBy="etalages")
+	 */
+	private  $producteur;
+
+	/**
+	 * @return mixed
+	 */
+	public function getProducteur() {
+		return $this->producteur;
+	}
+
+	/**
+	 * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Produit", mappedBy="etalages")
+	 */
+	private $produits;
+
+	public function __construct(){
+		$this->produits = new ArrayCollection();
+	}
+
+	/**
+	 * @return Produit
+	 */
+	public function getProduits() {
+		return $this->produits;
+	}
+
+	/**
+	 * @param Produit $produit
+	 */
+	public function addProduits( $produit ) {
+		if(!$this->produits->contains($produit)){
+			$this->produits->add($produit);
+		}else{
+//			$this->produits->removeElement($produit);
+		}
+	}
 
     /**
      * Get id

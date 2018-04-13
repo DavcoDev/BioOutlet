@@ -82,3 +82,6 @@ easy_admin:
 
         Etalage:
             class: AppBundle\Entity\Etalage
+
+        Panier:
+            class: AppBundle\Entity\Panier

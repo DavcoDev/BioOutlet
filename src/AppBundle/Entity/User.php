@@ -60,6 +60,10 @@ class User
 		$this->paniers = new ArrayCollection();
 	}
 
+	public function __toString() {
+		return $this->$this->getFirstName().''. $this->getLastName();
+	}
+
     /**
      * Get id
      *
