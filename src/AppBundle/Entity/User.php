@@ -49,6 +49,10 @@ class User
      */
     private $password;
 
+//	/**
+//	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Panier", mappedBy="numeroPanier")
+//	 */
+//	private $paniers;
 
     /**
      * Get id
@@ -155,5 +159,19 @@ class User
     {
         return $this->password;
     }
+
+	/**
+	 * @return Panier
+	 */
+	public function getPaniers() {
+		return $this->paniers;
+	}
+
+	/**
+	 * @param Panier $paniers
+	 */
+	public function setPaniers( $paniers ) {
+		$this->paniers = $paniers;
+	}
 }
 
