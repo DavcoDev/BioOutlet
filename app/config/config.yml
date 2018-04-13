@@ -79,3 +79,6 @@ easy_admin:
 
         Category:
             class: AppBundle\Entity\Category
+
+        Etalage:
+            class: AppBundle\Entity\Etalage

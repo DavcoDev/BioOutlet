@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,10 +50,15 @@ class User
      */
     private $password;
 
-//	/**
-//	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Panier", mappedBy="numeroPanier")
-//	 */
-//	private $paniers;
+	/**
+	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Panier", mappedBy="user")
+	 */
+	private $paniers;
+
+	public function __construct()
+	{
+		$this->paniers = new ArrayCollection();
+	}
 
     /**
      * Get id
@@ -161,17 +167,12 @@ class User
     }
 
 	/**
-	 * @return Panier
+	 * @return ArrayCollection | Panier[]
 	 */
 	public function getPaniers() {
 		return $this->paniers;
 	}
 
-	/**
-	 * @param Panier $paniers
-	 */
-	public function setPaniers( $paniers ) {
-		$this->paniers = $paniers;
-	}
+
 }
 

@@ -28,6 +28,10 @@ class Panier
      */
     private $numeroPanier;
 
+	/**
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="paniers")
+	 */
+    private $user;
 
     /**
      * Get id
