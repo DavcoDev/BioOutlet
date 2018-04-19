@@ -28,6 +28,10 @@ class PanierController extends Controller
 
         return $this->render('panier/index.html.twig', array(
             'paniers' => $paniers,
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Liste des paniers',
+            'headerH1' => 'Panier'
         ));
     }
 
@@ -54,6 +58,10 @@ class PanierController extends Controller
         return $this->render('panier/new.html.twig', array(
             'panier' => $panier,
             'form' => $form->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Ajouter un produit',
+            'headerH1' => 'Panier'
         ));
     }
 
@@ -70,6 +78,10 @@ class PanierController extends Controller
         return $this->render('panier/show.html.twig', array(
             'panier' => $panier,
             'delete_form' => $deleteForm->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Description',
+            'headerH1' => 'Panier'
         ));
     }
 
@@ -95,6 +107,10 @@ class PanierController extends Controller
             'panier' => $panier,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Modifier le panier',
+            'headerH1' => 'Panier'
         ));
     }
 

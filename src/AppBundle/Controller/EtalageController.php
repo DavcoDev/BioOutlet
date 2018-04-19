@@ -28,6 +28,10 @@ class EtalageController extends Controller
 
         return $this->render('etalage/index.html.twig', array(
             'etalages' => $etalages,
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Liste des étals',
+            'headerH1' => 'Etalages'
         ));
     }
 
@@ -54,6 +58,10 @@ class EtalageController extends Controller
         return $this->render('etalage/new.html.twig', array(
             'etalage' => $etalage,
             'form' => $form->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Proposez votre étalage',
+            'headerH1' => 'Etalages'
         ));
     }
 
@@ -70,6 +78,10 @@ class EtalageController extends Controller
         return $this->render('etalage/show.html.twig', array(
             'etalage' => $etalage,
             'delete_form' => $deleteForm->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Description',
+            'headerH1' => 'Etalages'
         ));
     }
 
@@ -95,6 +107,10 @@ class EtalageController extends Controller
             'etalage' => $etalage,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Modifier l\'étal',
+            'headerH1' => 'Etalages'
         ));
     }
 

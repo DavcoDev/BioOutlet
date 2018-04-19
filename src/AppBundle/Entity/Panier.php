@@ -31,7 +31,21 @@ class Panier
 	/**
 	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="paniers")
 	 */
-    private $user;
+	private $user;
+
+
+	public function __toString()
+	{
+		return ''.$this->getNumeroPanier();
+	}
+
+
+	/**
+	 * @return User
+	 */
+	public function getUser() {
+		return $this->user;
+	}
 
     /**
      * Get id

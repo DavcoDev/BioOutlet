@@ -50,6 +50,11 @@ class Etalage
 		$this->produits = new ArrayCollection();
 	}
 
+	public function __toString()
+	{
+		return $this->getName();
+	}
+
 	/**
 	 * @return Produit
 	 */

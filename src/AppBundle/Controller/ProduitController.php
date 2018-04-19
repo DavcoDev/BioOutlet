@@ -28,6 +28,10 @@ class ProduitController extends Controller
 
         return $this->render('produit/index.html.twig', array(
             'produits' => $produits,
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Liste des produits',
+            'headerH1' => 'Produit'
         ));
     }
 
@@ -54,6 +58,10 @@ class ProduitController extends Controller
         return $this->render('produit/new.html.twig', array(
             'produit' => $produit,
             'form' => $form->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Ajouter un produit',
+            'headerH1' => 'Produit'
         ));
     }
 
@@ -95,6 +103,10 @@ class ProduitController extends Controller
             'produit' => $produit,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Modifier un produit',
+            'headerH1' => 'Produit'
         ));
     }
 

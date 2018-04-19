@@ -41,8 +41,20 @@ class Produit
 	 */
 	private $etalages;
 
+	/**
+	 * @return mixed
+	 */
+	public function getEtalages() {
+		return $this->etalages;
+	}
+
 	public function __construct(){
 		$this->etalages = new ArrayCollection();
+	}
+
+	public function __toString()
+	{
+		return $this->getNomProduit();
 	}
 
 	/**
