@@ -13,7 +13,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-	    $repository = $this->getDoctrine()->getRepository('AppBundle:Etalage');
+	    $repository = $this->getDoctrine()->getRepository('AppBundle:Producteur');
 
 	    // replace this example code with whatever you need
 	    return $this->render( 'pages/index.html.twig', array(
@@ -21,7 +21,7 @@ class DefaultController extends Controller
 		    'imgBackground' => 'img/background-bio.jpg',
 		    'subHeader' => 'Accueil',
 		    'headerH1' => 'Bio Outlet',
-		    'etalages' => $repository->findAll())
+		    'producteurs' => $repository->findAll())
 
 	    );
     }

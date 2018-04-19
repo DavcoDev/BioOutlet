@@ -6,21 +6,21 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EtalageType extends AbstractType
+class ProducteurType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('producteur')->add('produits');
+        $builder->add('nomProducteur')->add('nomFerme')->add('ville');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Etalage'
+            'data_class' => 'AppBundle\Entity\Producteur'
         ));
     }
 
@@ -29,7 +29,7 @@ class EtalageType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_etalage';
+        return 'appbundle_producteur';
     }
 
 

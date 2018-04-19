@@ -44,20 +44,27 @@ class Producteur
     private $ville;
 
 	/**
-	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Etalage", mappedBy="producteur")
+	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Produit", mappedBy="producteur")
 	 */
-	private $etalages;
+	private $produits;
 
 	/**
-	 * @return ArrayCollection | Etalage
+	 * @param Produit $produits
 	 */
-	public function getEtalages() {
-		return $this->etalages;
+	public function setEtalages( $produits ) {
+		$this->produits = $produits;
+	}
+
+	/**
+	 * @return ArrayCollection | Produit[]
+	 */
+	public function getProduits() {
+		return $this->produits;
 	}
 
 	public function __construct()
 	{
-		$this->etalages = new ArrayCollection();
+		$this->produits = new ArrayCollection();
 	}
 
 	public function __toString() {

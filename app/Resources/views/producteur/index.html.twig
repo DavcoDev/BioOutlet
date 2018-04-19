@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Producteurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomproducteur</th>
+                <th>Nomferme</th>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for producteur in producteurs %}
+            <tr>
+                <td><a href="{{ path('producteur_show', { 'id': producteur.id }) }}">{{ producteur.id }}</a></td>
+                <td>{{ producteur.nomProducteur }}</td>
+                <td>{{ producteur.nomFerme }}</td>
+                <td>{{ producteur.ville }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('producteur_show', { 'id': producteur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('producteur_edit', { 'id': producteur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('producteur_new') }}">Create a new producteur</a>
+        </li>
+    </ul>
+{% endblock %}

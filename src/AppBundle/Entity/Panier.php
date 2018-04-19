@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,6 +40,35 @@ class Panier
 		return ''.$this->getNumeroPanier();
 	}
 
+	/**
+	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Produit", mappedBy="panier")
+	 */
+	private $produits;
+
+	/**
+	 * @return ArrayCollection | Produit[]
+	 */
+	public function getProduits() {
+		return $this->produits;
+	}
+
+
+	public function __construct(){
+		$this->produits = new ArrayCollection();
+	}
+
+
+	/**
+	 * @param Produit $produits
+	 */
+	public function addProduit( $produits ) {
+		if(!$this->produits->contains($produits)){
+			$this->produits->add($produits);
+		}
+		//else{
+//			$this->produits->removeElement($produits);
+		//}
+	}
 
 	/**
 	 * @return User

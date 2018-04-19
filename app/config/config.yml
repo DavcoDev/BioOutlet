@@ -70,18 +70,9 @@ easy_admin:
     entities:
         Producteur:
             class: AppBundle\Entity\Producteur
-
         Produit:
             class: AppBundle\Entity\Produit
-
         User:
             class: AppBundle\Entity\User
-
-        Category:
-            class: AppBundle\Entity\Category
-
-        Etalage:
-            class: AppBundle\Entity\Etalage
-
         Panier:
             class: AppBundle\Entity\Panier

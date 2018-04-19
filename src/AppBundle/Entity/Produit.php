@@ -36,21 +36,6 @@ class Produit
      */
     private $quantite;
 
-	/**
-	 * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Etalage", inversedBy="produits")
-	 */
-	private $etalages;
-
-	/**
-	 * @return mixed
-	 */
-	public function getEtalages() {
-		return $this->etalages;
-	}
-
-	public function __construct(){
-		$this->etalages = new ArrayCollection();
-	}
 
 	public function __toString()
 	{
@@ -58,14 +43,41 @@ class Produit
 	}
 
 	/**
-	 * @param Etalage $etalage
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Panier", inversedBy="produitsPanier")
 	 */
-	public function addEtalages( $etalage ) {
-		if(!$this->etalages->contains($etalage)){
-			$this->etalages->add($etalage);
-		}else{
-//			$this->etalages->removeElement($etalage);
-		}
+	private  $panier;
+
+	/**
+	 * @return Panier
+	 */
+	public function getPanier() {
+		return $this->panier;
+	}
+
+	/**
+	 * @param Panier $panier
+	 */
+	public function setPanier( $panier ) {
+		$this->panier = $panier;
+	}
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Producteur", inversedBy="produits")
+	 */
+	private $producteur;
+
+	/**
+	 * @return Producteur
+	 */
+	public function getProducteur() {
+		return $this->producteur;
+	}
+
+	/**
+	 * @param Producteur $producteur
+	 */
+	public function setProducteur( $producteur ) {
+		$this->producteur = $producteur;
 	}
 
     /**
