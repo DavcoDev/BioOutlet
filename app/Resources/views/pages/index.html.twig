@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+            {% for etal in etalages %}
+
+                <div class="post-preview">
+                        <h2 class="post-title">
+                            {{ etal.name }}
+                        </h2>
+                        <h3 class="post-subtitle">
+
+                        </h3>
+                    </a>
+                    <p class="post-meta">Proposé par : {{ etal.producteur }}
+                        <a href="{{ path('etalage_show', { 'id': etal.id }) }}">Voir les produits</a>
+                       </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <hr>
+{% endblock %}
+
+

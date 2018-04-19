@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Etalages list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etalage in etalages %}
+            <tr>
+                <td><a href="{{ path('etalage_show', { 'id': etalage.id }) }}">{{ etalage.id }}</a></td>
+                <td>{{ etalage.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etalage_show', { 'id': etalage.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etalage_edit', { 'id': etalage.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etalage_new') }}">Create a new etalage</a>
+        </li>
+    </ul>
+{% endblock %}
