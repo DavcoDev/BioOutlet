@@ -71,10 +71,17 @@ class Panier
 	}
 
 	/**
-	 * @return User
+	 * @return \AppBundle\Entity\User
 	 */
 	public function getUser() {
 		return $this->user;
+	}
+
+	/**
+	 * @param \AppBundle\Entity\User $user
+	 */
+	public function setUser( $user) {
+		$this->user = $user;
 	}
 
     /**

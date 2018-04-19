@@ -43,7 +43,7 @@ class Produit
 	}
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Panier", inversedBy="produitsPanier")
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Panier", inversedBy="produits")
 	 */
 	private  $panier;
 

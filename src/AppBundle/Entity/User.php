@@ -61,7 +61,7 @@ class User
 	}
 
 	public function __toString() {
-		return $this->$this->getFirstName().''. $this->getLastName();
+		return $this->getFirstName().''. $this->getLastName();
 	}
 
     /**
