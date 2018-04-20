@@ -78,7 +78,10 @@ class ProducteurController extends Controller
 
         return $this->render('producteur/show.html.twig', array(
             'producteur' => $producteur,
-            'delete_form' => $deleteForm->createView(),
+            'delete_form' => $deleteForm->createView(),'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Description',
+            'headerH1' => 'Producteur',
         ));
     }
 
@@ -104,6 +107,10 @@ class ProducteurController extends Controller
             'producteur' => $producteur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'title' => 'Index',
+            'imgBackground' => 'img/background-bio.jpg',
+            'subHeader' => 'Edition',
+            'headerH1' => 'Producteur',
         ));
     }
 
