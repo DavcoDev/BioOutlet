@@ -48,12 +48,6 @@ class Producteur
 	 */
 	private $produits;
 
-	/**
-	 * @param Produit $produits
-	 */
-	public function setEtalages( $produits ) {
-		$this->produits = $produits;
-	}
 
 	/**
 	 * @return ArrayCollection | Produit[]
@@ -69,6 +63,26 @@ class Producteur
 
 	public function __toString() {
 		return $this->getNomProducteur();
+	}
+
+	/**
+	 * @param Produit $produits
+	 */
+	public function addProduit( $produits ) {
+		if(!$this->produits->contains($produits)){
+			$this->produits->add($produits);
+		}
+
+	}
+
+	/**
+	 * @param Produit $produits
+	 */
+	public function removeProduit( $produits ) {
+		if(!$this->produits->contains($produits)){
+			$this->produits->removeElement($produits);
+		}
+
 	}
 
 	/**

@@ -3,6 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Producteur;
+use AppBundle\Entity\Produit;
+use AppTestBundle\Entity\UnitTests\Product;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -78,6 +81,7 @@ class ProducteurController extends Controller
 
         return $this->render('producteur/show.html.twig', array(
             'producteur' => $producteur,
+            'produits' => $producteur->getProduits(),
             'delete_form' => $deleteForm->createView(),'title' => 'Index',
             'imgBackground' => 'img/background-bio.jpg',
             'subHeader' => 'Description',
@@ -108,7 +112,7 @@ class ProducteurController extends Controller
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
             'title' => 'Index',
-            'imgBackground' => 'img/background-bio.jpg',
+//            'imgBackground' => 'img/background-bio.jpg',
             'subHeader' => 'Edition',
             'headerH1' => 'Producteur',
         ));
@@ -148,5 +152,48 @@ class ProducteurController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+	/**
+	 ** @param Producteur $producteur
+	 *
+	 * @Route("/{id}/add_product", name="add_product")
+	 * @Method({"GET", "POST"})
+	 *
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+	 */
+    public function add_product(Producteur $producteur){
+
+	    $em = $this->getDoctrine()->getManager();
+
+	    $listpoduit = $em->getRepository('AppBundle:Produit')->findAll();
+
+	    return $this->render('producteur/add_product.html.twig', array(
+		    'producteur' => $producteur,
+		    'produits' => $producteur->getProduits(),
+			'listpoduit' => $listpoduit,
+		    'title' => 'Index',
+		    'subHeader' => 'Add produit',
+		    'headerH1' => 'Produit',
+	    ));
+    }
+
+	/**
+	 * @Route("/{id}/addProduitProducteur/{idproduit}", name="addProduitProducteur")
+	 *
+	 * @ParamConverter("producteur", class="AppBundle:Producteur", options={"id" = "id"})
+	 * @ParamConverter("produit", class="AppBundle:Produit", options={"id" = "idproduit"})
+	 *
+	 * @Method({"GET","POST"})
+	 */
+    public function addProduitProducteur(Producteur $producteur, Produit $produit){
+
+	    $quantite = $produit->getQuantite() + 1;
+	    $produit->setQuantite($quantite);
+
+	    $em = $this->getDoctrine()->getManager();
+	    $em->flush();
+
+	    return $this->redirectToRoute('producteur_index');
     }
 }

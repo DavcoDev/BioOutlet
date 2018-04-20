@@ -65,9 +65,17 @@ class Panier
 		if(!$this->produits->contains($produits)){
 			$this->produits->add($produits);
 		}
-		//else{
-//			$this->produits->removeElement($produits);
-		//}
+
+	}
+
+	/**
+	 * @param Produit $produits
+	 */
+	public function removeProduit( $produits ) {
+		if(!$this->produits->contains($produits)){
+			$this->produits->removeElement($produits);
+		}
+
 	}
 
 	/**

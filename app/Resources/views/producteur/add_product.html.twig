@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Produit du producteur : {{ producteur.nomProducteur }}</h1>
+    <h3>{{ producteur.nomFerme }}</h3>
+
+    {% for produit in produits %}
+        <div>
+
+            <div>{{ produit.nomProduit }} : {{ produit.quantite }}</div>
+
+        </div>
+    {% endfor %}
+    <br>
+    <h3>Liste des produits disponibles :</h3>
+
+    {% for listpro in listpoduit %}
+
+       <div>{{ listpro }}
+           <a href="{{ path('addProduitProducteur', { 'id': producteur.id, 'idproduit': listpro.id}) }}"><button> + </button></a>
+       </div>
+    {% endfor %}
+
+{% endblock %}

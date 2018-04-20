@@ -29,7 +29,7 @@ class PanierController extends Controller
         return $this->render('panier/index.html.twig', array(
             'paniers' => $paniers,
             'title' => 'Index',
-            'imgBackground' => 'img/background-bio.jpg',
+//            'imgBackground' => 'img/background-bio.jpg',
             'subHeader' => 'Liste des paniers',
             'headerH1' => 'Panier'
         ));

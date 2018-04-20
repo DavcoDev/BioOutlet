@@ -177,6 +177,24 @@ class User
 		return $this->paniers;
 	}
 
+	/**
+	 * @param Panier $paniers
+	 */
+	public function addPanier( $paniers ) {
+		if(!$this->paniers->contains($paniers)){
+			$this->paniers->add($paniers);
+		}
 
+	}
+
+	/**
+	 * @param Panier $paniers
+	 */
+	public function removePanier( $paniers ) {
+		if(!$this->paniers->contains($paniers)){
+			$this->paniers->removeElement($paniers);
+		}
+
+	}
 }
 

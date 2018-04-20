@@ -4,10 +4,16 @@
     <h1>Producteur edit</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
 
+    {{ form_widget(edit_form) }}
+
+    <input type="submit" value="Edit" />
+
+    <br>
+   <a href="{{ path('add_product', { 'id': producteur.id }) }}"> Add produit </a>
+
+    {{ form_end(edit_form) }}
+    <br>
     <ul>
         <li>
             <a href="{{ path('producteur_index') }}">Back to the list</a>

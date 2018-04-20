@@ -21,9 +21,19 @@
                 <th>Ville</th>
                 <td>{{ producteur.ville }}</td>
             </tr>
+
+
         </tbody>
     </table>
 
+    {% for produit in produits %}
+        <div>
+
+            <div>{{ produit.nomProduit }} : {{ produit.quantite }}</div>
+
+        </div>
+    {% endfor %}
+    <br>
     <ul>
         <li>
             <a href="{{ path('producteur_index') }}">Back to the list</a>
@@ -36,5 +46,7 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
+
+
     </ul>
 {% endblock %}
